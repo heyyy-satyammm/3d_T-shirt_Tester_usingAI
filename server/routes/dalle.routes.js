@@ -7,7 +7,7 @@ dotenv.config();
 const router = express.Router();
 
 const config = new Configuration({
-  apikey: process.env.OPEN_AI_KEY,
+  apiKey: process.env.OPEN_AI_KEY,
 });
 
 const openai = new OpenAIApi(config);
@@ -37,3 +37,7 @@ router.route("/").post(async (req, res) => {
 });
 
 export default router;
+
+// "engines": {
+//   "node": ">=18<19"
+// }

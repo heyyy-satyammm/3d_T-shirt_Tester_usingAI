@@ -60,8 +60,13 @@ const Customizer = () => {
           body: JSON.stringify({
             prompt,
           })
-        }) 
+        }); 
 
+        if (!response.ok) {
+          // Handle the case when the API request fails
+          throw new Error('Failed to generate AI image');
+        }
+        
         const data= await response.json();
         
         handleDecals(type, `data:image/png;base64,${data.photo}`)
